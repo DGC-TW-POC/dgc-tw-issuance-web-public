@@ -1,0 +1,35 @@
+<main class="limiter">
+    <div class="container-custom">
+        <div class="wrap-custom">
+            <div class="custom-form validate-form">
+                <app-progress-bar></app-progress-bar> 
+                <br>
+                <h1 class="custom-form-title p-b-43">
+                    QR Code
+                </h1>
+                <div class="card w-100">
+                    <div class="card-body">
+                        <div class="row text-center">
+                            <div class="col-12">
+                                <qrcode 
+                                [qrdata]="qrcode"
+                                [width]="256"
+                                [errorCorrectionLevel]="'M'"
+                                [elementType]="'svg'">
+        
+                                </qrcode>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row text-center">
+                            <div class="col-12">
+                                <span class="text-success">驗證(TAN)碼已傳送至您的E-Mail: {{email}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

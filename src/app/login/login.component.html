@@ -1,0 +1,43 @@
+<main class="limiter">
+    <div class="container-custom">
+        <div class="wrap-custom">
+            
+            <div class="custom-form validate-form">
+                <app-progress-bar></app-progress-bar> 
+                <br>
+                <h1 class="custom-form-title p-b-43">
+                    身分驗證
+                </h1>
+
+                <div class="wrap-custom-input validate-input">
+                    <input class="input-custom" type="text" name="idn" [(ngModel)]="loginSchema.idn" oninput="this.value = this.value.toUpperCase()" (input)="onIdnInput();">
+                    <span class="focus-input-custom"></span>
+                    <span class="label-input-custom">身份證/居留號</span>
+                </div>
+
+
+                <div class="wrap-custom-input validate-input">
+                    <input class="input-custom" type="text" name="nhCard" maxlength="12" [(ngModel)]="loginSchema.nhCard" (keyup.enter)="validateLogin();" (input)="onNhCardInput();">
+                    <span class="focus-input-custom"></span>
+                    <span class="label-input-custom">健保卡卡號</span>
+                </div>
+                <div class="row mb-1">
+                    <div class='col-lg-12 col-md-12 col-12'>
+                        <small class="text-muted" id="text-idn">身份證/居留號</small>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class='col-lg-12 col-md-12 col-12'>
+                        <small class="text-muted" id="text-nhCard">健保卡卡號</small>
+                    </div>
+                </div>
+                <div class="container-custom-form-btn">
+                    <button class="custom-form-btn" (click)="validateLogin();" >
+                        身分驗證
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>

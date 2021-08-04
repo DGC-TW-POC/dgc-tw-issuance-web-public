@@ -1,0 +1,201 @@
+<main class="limiter" *ngIf="nowPage === 'vaccineApply'">
+    <div class="container-custom">
+        <div class="wrap-custom">
+            <div class="custom-form validate-form">
+                <app-progress-bar></app-progress-bar>
+                <br>
+                <h1 class="custom-form-title pb-43 mb-4">
+                    填寫及確認資料
+                </h1>
+                <div class="card w-100 mb-4">
+                    <div class="card-title text-center">
+                        <h2 class="text-underline">請確認以下資料</h2>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="row mb-2 text-center">
+                            <div class="col-6">
+                                <span>施打機構</span>
+                            </div>
+                            <div class="col-6">
+                                <span class="text-underline">{{vaccineData.AgencyCode}}</span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2 text-center">
+                            <div class="col-6">
+                                <span>姓名: </span>
+                            </div>
+                            <div class="col-6">
+                                <span class="text-underline">{{vaccineData.person.Name}}</span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2 text-center">
+                            <div class="col-6">
+                                <span>身份證字號/護照號碼/居留證號碼:</span>
+                            </div>
+                            <div class="col-6">
+                                <span class="text-underline">{{vaccineData.IdNo}}</span>
+                            </div>
+                        </div>
+                        <div class="row mb-2 text-center">
+                            <div class="col-6">
+                                <span>生日:</span>
+                            </div>
+                            <div class="col-6">
+                                <span class="text-underline">{{vaccineData.person.Birthday}}</span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2 text-center">
+                            <div class="col-6">
+                                <span>接種疫苗:</span>
+                            </div>
+                            <div class="col-6">
+                                <span class="text-underline">{{vaccineData.VaccID}}</span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2 text-center">
+                            <div class="col-6">
+                                <span>接種劑次/需接種總劑次:</span>
+                            </div>
+                            <div class="col-6">
+                                <span class="text-underline">{{vaccineData.VaccDoses}}</span>
+                            </div>
+                        </div>
+                        <!-- <div class="col-12 mb-3">
+                      <span>接種疫苗廠商:<br />
+                        {{selectedVaccItem.org.name}}</span>
+                    </div>
+                    <div class="col-12 mb-3">
+                      <span>接種疫苗種類:<br />
+                        {{selectedVaccItem.type.name}}</span>
+                    </div> -->
+                        <div class="row mb-2 text-center">
+                            <div class="col-6">
+                                <span>接種日期:</span>
+                            </div>
+                            <div class="col-6">
+                                <span class="text-underline">
+                                    {{vaccineData.InocuDate}}
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title text-center">
+                        <h2 class="text-underline">請填寫以下資料</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-12 mb-3">
+                                <button class="btn btn-block h-100" id="btnRomanizeName"
+                                    (click)="onBtnRomanizeNameClick('HANYU');" [ngClass]="checkedRomanizeCss('HANYU')">
+                                    漢語拼音
+                                </button>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-12 mb-3">
+                                <button class="btn btn-block h-100" id="btnRomanizeName"
+                                    (click)="onBtnRomanizeNameClick('TONGYONG');"
+                                    [ngClass]="checkedRomanizeCss('TONGYONG')">
+                                    通用拼音
+                                </button>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-12 mb-3">
+                                <button class="btn btn-block h-100" id="btnRomanizeName"
+                                    (click)="onBtnRomanizeNameClick('WG');" [ngClass]="checkedRomanizeCss('WG')">
+                                    威妥瑪(WG)拼音
+                                </button>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-12 mb-3">
+                                <button class="btn btn-block h-100" id="btnRomanizeName"
+                                    (click)="onBtnRomanizeNameClick('MPS-II');"
+                                    [ngClass]="checkedRomanizeCss('MPS-II')">
+                                    國音第二式拼音
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-lg-12 col-md-12 col-12">
+                                <div class="invalid-feedback d-block">英文姓名輸入欄僅接受"英文大寫"、"小於符號"、"空白符號"</div>
+                            </div>
+
+
+                            <div class="col-lg-12 col-md-12 col-12">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text font-weight-bold">LastName(英文姓氏)&nbsp;</span>
+                                    </div>
+                                    <input type="text" id="inputLastName" class="form-control form-control-sm"
+                                        (input)="checkInput('LastName' ,'text-lastName');enNameFilter($event,'LastName');"
+                                        [(ngModel)]="postCDCVaccine.LastName" required placeholder="請輸入英文姓氏">
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-12 mb-3">
+                                <div class="input-group input-group-sm">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text font-weight-bold">FirstName(英文名字)</span>
+                                    </div>
+                                    <input type="text" id="inputFirstName" class="form-control form-control-sm"
+                                        (input)="checkInput('FirstName' ,'text-firstName');enNameFilter($event,'FirstName');"
+                                        [(ngModel)]="postCDCVaccine.FirstName" required placeholder="請輸入英文名字">
+                                </div>
+
+
+
+                                <!-- <div (capsLock)="capsOn=$event">
+                  <div class="alert alert-danger text-center" role="alert" *ngIf="!capsOn">大寫未開啟</div>
+                </div>  -->
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-12">
+                                <div class="input-group input-group-sm">
+                                    <div class="input-group-prepend">
+                                        <span
+                                            class="input-group-text font-weight-bold">E-mail(電子郵件)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    </div>
+                                    <input type="email" id="inputEmail" class="form-control form-control-sm"
+                                        (input)="checkInput('email' ,'text-email');" [(ngModel)]="postCDCVaccine.email"
+                                        required placeholder="請輸入E-mail">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-1">
+                            <div class='col-lg-12 col-md-12 col-12'>
+                                <small class="text-muted" id="text-lastName">LastName(英文姓氏)</small>
+                            </div>
+                        </div>
+                        <div class="row mb-1">
+                            <div class='col-lg-12 col-md-12 col-12'>
+                                <small class="text-muted" id="text-firstName">FirstName(英文名字)
+                                </small>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class='col-lg-12 col-md-12 col-12'>
+                                <small class="text-muted" id="text-email">E-mail(電子郵件)
+                                </small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                <button class="btn btn-block btn-warmBlue" (click)="doGennerateQRCode();">
+                                    送出
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+<app-show-qrcode *ngIf="nowPage === 'showQRCode'" [qrcode]="qrcode" [email]="postCDCVaccine.email"></app-show-qrcode>

@@ -1,1 +1,149 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;900&display=swap');
+
+body {
+  font-family: 'Noto Sans TC', sans-serif !important;
+  font-weight: 400 !important;
+}
+
+/*//////////////////////////////////////////////////////////////////
+  [ login ]*/
+
+
+.limiter {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-custom {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.wrap-custom {
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  flex-direction: row-reverse;
+}
+
+
+
+/*==================================================================
+  [ Form ]*/
+
+.custom-form {
+  width: 100%;
+  min-height: 100vh;
+  display: block;
+  padding: 173px 55px 55px 55px;
+}
+
+.custom-form-title {
+  width: 100%;
+  display: block;
+  font-family: Poppins-Regular;
+  font-size: 30px;
+  color: #333333;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/*------------------------------------------------------------------
+  [ Button ]*/
+.container-custom-form-btn {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.custom-form-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background: #6675df;
+
+  font-family: Montserrat-Bold;
+  font-size: 12px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.custom-form-btn:hover {
+  background: #4752C4;
+}
+
+.btn-warmBlue {
+  color: #fff;
+  background-color: #6675df;
+  border-color: #6675df;
+}
+.btn-warmBlue:hover {
+  background: #4752C4;
+}
+/*------------------------------------------------------------------
+  [ Responsive ]*/
+
+@media (max-width: 992px) {
+  .custom-form {
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-form {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .custom-form {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 70px;
+  }
+}
+
+/* #region validation notify*/
+
+.text-check::before {
+  content: '✔️'
+}
